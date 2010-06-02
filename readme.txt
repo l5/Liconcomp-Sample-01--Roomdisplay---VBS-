@@ -1,7 +1,7 @@
 ﻿Sample: roomdisplay
 
 created: 03.04.2010
-modified: 13.04.2010 (Rev. 2)
+modified: 02.06.2010 (Rev. 3)
 by: Line5 e.K.
 http://www.liconcomp.com
 tested with version: liconcomp 1.0

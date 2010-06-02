@@ -1,6 +1,6 @@
 
-Set oShell = CreateObject("WScript.Shell")
-aktuellesVerzeichnis = oShell.CurrentDirectory
+Dim oFS : Set oFS = CreateObject( "Scripting.FileSystemObject" ) 
+aktuellesVerzeichnis = oFS.GetParentFolderName( WScript.ScriptFullName ) 
 
 ' Eine Funktion um Ticker Texte hinzuzufügen
 '
@@ -36,8 +36,7 @@ Function CreateVideoWithVectorMovement( _
 	byval dX, _
 	byval dY, _
 	byval linebreak, _
-	byval offsetX, _
-	byval offetY)
+	byval offsetX)
 
 	dim video : set video = nothing
 	set video = player.CreateVideoFromFile(filename)
@@ -49,7 +48,7 @@ Function CreateVideoWithVectorMovement( _
 	video.Movement = move
 	video.LineBreak = linebreak
 	video.OffsetX = offsetX
-	video.OffsetY = offsetY
+	
 	video.Play()
 	video.Visible = True
 	
@@ -80,7 +79,7 @@ set player = Wscript.CreateObject("Liconcomp.Player")
 player.SetBackgroundColor Int(0), Int(0), Int(0)
 
 
-CreateVideoWithVectorMovement aktuellesVerzeichnis+"\Diamond.avi", 30, 190, 0, 0, 0, 0, 0
+CreateVideoWithVectorMovement aktuellesVerzeichnis + "\Diamond.avi", 30, 190, 0, 0, 0, 0
 
 CreateTextWithVectorMovement "KEYNOTE", 100, 150, 0, 0
 CreateTextWithVectorMovement "09:30 - 11:00", 100, 220, 0, 0
